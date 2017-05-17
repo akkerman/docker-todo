@@ -1,11 +1,14 @@
 version: "2"
 
+mem_limit: 128000000
+cpu_limit: 1
+
 services:
   proxy:
     image: akkerman/todo-proxy
     container_name: "todo-proxy"
     ports:
-      - "8080:8080"
+      - "80:80"
 
   node:
     image: akkerman/todo-node
