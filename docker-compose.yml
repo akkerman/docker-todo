@@ -14,17 +14,13 @@ services:
     build: ./node
     container_name: "bakjes-node"
     restart: always
-    volumes:
-      - ./node:/todo
     networks:
       - bus
 
-  flask:
-    build: ./flask
-    container_name: "bakjes-flask"
+  python:
+    build: ./python
+    container_name: "bakjes-python"
     command: python -u app.py
-    volumes:
-      - ./flask:/todo 
     networks:
       - bus
 
