@@ -2,17 +2,17 @@ version: "2"
 
 services:
   proxy:
-    build: ./proxy/
+    image: akkerman/todo-proxy
     container_name: "todo-proxy"
     ports:
       - "8080:8080"
 
   node:
-    build: ./node
+    image: akkerman/todo-node
     container_name: "todo-node"
 
   python:
-    build: ./python
+    image: akkerman/todo-python
     container_name: "todo-python"
     command: python -u app.py
 
