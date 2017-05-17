@@ -1,0 +1,32 @@
+version: "2"
+
+services:
+  proxy:
+    build: ./proxy/
+    container_name: "bakjes"
+    ports:
+      - "8080:8080"
+    restart: always
+    networks:
+      - bus
+
+  webapp:
+    build: ./webapp/image
+    container_name: "bakjes-webapp"
+    restart: always
+    networks:
+      - bus
+
+  mongo:
+    image: mongo:3.0.2
+    container_name: "bakjes-mongo"
+    restart: always
+    networks:
+      - bus
+
+networks:
+  bus:
+    driver: bridge
+
+
+
