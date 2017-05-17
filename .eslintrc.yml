@@ -1,0 +1,95 @@
+env:
+  browser: false
+  node: true
+  commonjs: true
+  es6: true
+extends: 'eslint:recommended'
+rules:
+  indent:
+    - error
+    - 4
+  linebreak-style:
+    - error
+    - unix
+  quotes:
+    - error
+    - single
+  no-console:
+    - off
+
+# spacing
+  eol-last:
+    - error
+    - unix
+  space-before-blocks:
+    - error
+  space-before-function-paren:
+    - error
+    - named: never
+      anonymous: always
+  no-spaced-func:
+    - error
+  space-unary-ops:
+    - error
+  space-in-parens:
+    - error
+  space-infix-ops:
+    - error
+  no-whitespace-before-property:
+    - error
+  padded-blocks:
+    - error
+    - never
+
+# es6
+  prefer-arrow-callback:
+    - error
+  arrow-body-style:
+    - error
+  arrow-parens:
+    - error
+    - as-needed
+
+# Node.js and CommonJS
+  callback-return:
+    - error
+  global-require:
+    - error
+  handle-callback-err:
+    - error
+  no-mixed-requires:
+    - error
+  no-new-require:
+    - error
+  no-path-concat:
+    - error
+  no-process-env:
+    - warn
+  no-process-exit:
+    - error
+  no-restricted-modules:
+    - error
+  no-sync:
+    - error
+
+# misc
+  one-var:
+    - off
+  no-magic-numbers:
+    - off
+    - ignore:
+        - 0
+        - 1
+  comma-dangle:
+    - warn
+  no-param-reassign:
+    - error
+  newline-after-var:
+    - off
+    - never
+  newline-before-return:
+    - off
+  no-use-before-define:
+    - error
+    - functions: false
+      classes: true

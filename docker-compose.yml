@@ -1,0 +1,21 @@
+version: "2"
+
+services:
+  proxy:
+    build: ./proxy/
+    container_name: "todo-proxy"
+    ports:
+      - "8080:8080"
+
+  node:
+    build: ./node
+    container_name: "todo-node"
+
+  python:
+    build: ./python
+    container_name: "todo-python"
+    command: python -u app.py
+
+  mongo:
+    image: mongo:3.0.2
+    container_name: "todo-mongo"

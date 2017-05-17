@@ -1,0 +1,12 @@
+<h1>TODO.py</h1>
+
+<form action="/todo.py/new" method="POST">
+    <label>Title: <input type="text" name="name"></input></label>
+    <label>Description: <input type="text" name="description"></input></label>
+    <input type="submit"></input>
+</form>
+
+{% for item in items %}
+  <h2> {{ item.name }} </h2>
+  <p> {{ item.description }} <p>
+{% endfor %}
