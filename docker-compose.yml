@@ -3,37 +3,19 @@ version: "2"
 services:
   proxy:
     build: ./proxy/
-    container_name: "bakjes"
+    container_name: "todo-proxy"
     ports:
       - "8080:8080"
-    restart: always
-    networks:
-      - bus
 
   node:
     build: ./node
-    container_name: "bakjes-node"
-    restart: always
-    networks:
-      - bus
+    container_name: "todo-node"
 
   python:
     build: ./python
-    container_name: "bakjes-python"
+    container_name: "todo-python"
     command: python -u app.py
-    networks:
-      - bus
 
   mongo:
     image: mongo:3.0.2
-    container_name: "bakjes-mongo"
-    restart: always
-    networks:
-      - bus
-
-networks:
-  bus:
-    driver: bridge
-
-
-
+    container_name: "todo-mongo"
