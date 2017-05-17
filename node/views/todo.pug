@@ -1,0 +1,15 @@
+h1 TODO.js 
+
+form(method="POST" action="/todo.js/new")
+    label(for="name") &nbsp;Title 
+    input#name(type="text" name="name")
+
+    label(for="description") &nbsp;Description
+    input#description(type="text" name="description")
+
+    input(type="submit")
+
+
+each item in items
+  h2= item.name
+  p= item.description

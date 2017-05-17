@@ -10,12 +10,16 @@ services:
     networks:
       - bus
 
-  # node:
-  #   build: ./node
-  #   container_name: "bakjes-webapp"
-  #   restart: always
-  #   networks:
-  #     - bus
+  node:
+    build: ./node
+    container_name: "bakjes-node"
+    ports:
+      - "3000:3000"
+    restart: always
+    volumes:
+      - ./node:/todo
+    networks:
+      - bus
 
   flask:
     build: ./flask
