@@ -8,7 +8,7 @@ client = MongoClient("mongo", 27017)
 db = client.tododb
 
 
-@app.route('/')
+@app.route('/todo.py')
 def todo():
 
     _items = db.tododb.find()
@@ -17,7 +17,7 @@ def todo():
     return render_template('todo.html', items=items)
 
 
-@app.route('/new', methods=['POST'])
+@app.route('/todo.py/new', methods=['POST'])
 def new():
 
     item_doc = {

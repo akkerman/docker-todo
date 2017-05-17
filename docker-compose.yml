@@ -1,14 +1,14 @@
 version: "2"
 
 services:
-  # proxy:
-  #   build: ./proxy/
-  #   container_name: "bakjes"
-  #   ports:
-  #     - "8080:8080"
-  #   restart: always
-  #   networks:
-  #     - bus
+  proxy:
+    build: ./proxy/
+    container_name: "bakjes"
+    ports:
+      - "8080:8080"
+    restart: always
+    networks:
+      - bus
 
   # node:
   #   build: ./node
@@ -21,8 +21,6 @@ services:
     build: ./flask
     container_name: "bakjes-flask"
     command: python -u app.py
-    ports:
-      - "5000:5000"
     volumes:
       - ./flask:/todo 
     networks:
