@@ -4,6 +4,7 @@ const bodyParser = require('body-parser')
 
 let tododb
 
+
 app.set('views', './views')
 app.set('view engine', 'pug')
 app.use(bodyParser.json())
@@ -22,7 +23,14 @@ app.post('/todo.js/new', (req, res) => {
 
 MongoClient.connect('mongodb://mongo:27017/tododb')
     .then(db => {
+        let server
         tododb = db.collection('tododb')
-        app.listen(3000, console.log)
+        server = app.listen(3000, console.log)
+        return [db, server]
     })
-
+    .then(([db,server]) => {
+        process.on('SIGTERM', () => {
+            server.close()
+            db.close()
+        })
+    })
