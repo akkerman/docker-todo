@@ -1,21 +1,36 @@
-version: "2"
+---
+version: "3"
 
 services:
   proxy:
     build: ./proxy/
+    image: todo_proxy
     container_name: "todo-proxy"
     ports:
       - "8080:8080"
+    depends_on:
+      - node
+      - python
 
   node:
     build: ./node
+    image: todo_node
     container_name: "todo-node"
+    depends_on:
+      - mongo
 
   python:
     build: ./python
+    image: todo_python
     container_name: "todo-python"
     command: python -u app.py
+    depends_on:
+      - mongo
 
   mongo:
     image: mongo:3.0.2
     container_name: "todo-mongo"
+    deploy:
+      resources:
+        limits:
+          memory: 500M
