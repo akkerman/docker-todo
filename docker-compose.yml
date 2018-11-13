@@ -5,7 +5,7 @@ services:
   proxy:
     build: ./proxy/
     image: todo_proxy
-    container_name: "todo-proxy"
+    container_name: todo_proxy
     ports:
       - "8080:8080"
     depends_on:
@@ -15,21 +15,21 @@ services:
   node:
     build: ./node
     image: todo_node
-    container_name: "todo-node"
+    container_name: todo_node
     depends_on:
       - mongo
 
   python:
     build: ./python
     image: todo_python
-    container_name: "todo-python"
+    container_name: todo_python
     command: python -u app.py
     depends_on:
       - mongo
 
   mongo:
     image: mongo:3.0.2
-    container_name: "todo-mongo"
+    container_name: todo_mongo
     deploy:
       resources:
         limits:
