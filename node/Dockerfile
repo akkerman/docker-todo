@@ -1,8 +1,9 @@
 FROM node:6.10
 ENV NODE_ENV production
 WORKDIR /todo
-COPY . .
+COPY package.json .
 RUN npm install --silent
+COPY . .
 
 EXPOSE 3000
 
