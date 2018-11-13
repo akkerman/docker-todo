@@ -5,15 +5,16 @@ const bodyParser = require('body-parser')
 let tododb
 
 
+const system = process.env.system || '"not set"'
+
 app.set('views', './views')
 app.set('view engine', 'pug')
 app.use(bodyParser.json())
 app.use(bodyParser.urlencoded({extended: true}))
 
-
 app.get('/todo.js', (req, res) => {
     tododb.find().toArray().then(items => {
-        res.render('todo', {items})
+        res.render('todo', {items, system})
     })
 })
 

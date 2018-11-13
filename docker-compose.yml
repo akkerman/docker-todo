@@ -16,6 +16,8 @@ services:
     build: ./node
     image: todo_node
     container_name: todo_node
+    environment:
+      - system=xtron
     depends_on:
       - mongo
 
