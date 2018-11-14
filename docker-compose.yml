@@ -4,7 +4,7 @@ version: "3"
 services:
   proxy:
     build: ./proxy/
-    image: todo_proxy
+    image: 192.168.20.1:5000/todo_proxy
     container_name: todo_proxy
     ports:
       - "8080:8080"
@@ -14,7 +14,7 @@ services:
 
   node:
     build: ./node
-    image: todo_node
+    image: 192.168.20.1:5000/todo_node
     container_name: todo_node
     environment:
       - system=xtron
@@ -23,7 +23,7 @@ services:
 
   python:
     build: ./python
-    image: todo_python
+    image: 192.168.20.1:5000/todo_python
     container_name: todo_python
     command: python -u app.py
     depends_on:
